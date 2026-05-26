@@ -7,15 +7,20 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  lint-html:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout del repositorio
         uses: actions/checkout@v4
 
-      - name: Verificar archivos del proyecto
-        run: |
-          echo "Revisando que los archivos existan en el repositorio..."
-          ls -la
-          esteComandoNoExisteYVaAFallar
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar HTMLHint
+        run: npm install -g htmlhint
+
+      - name: Evaluar archivo index.html
+        run: htmlhint index.html
