@@ -16,5 +16,5 @@ jobs:
 
       - name: Verificar archivos del proyecto
         run: |
-          echo "Revisando que los archivos existan en el repositorio..."
-          ls -la
+          echo "Forzando un fallo en el pipeline para la entrega..."
+          esteComandoNoExisteYVaAFallar
