@@ -1,7 +1,7 @@
 name: CI Pipeline
 
 on:
-  push: 
+  push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
@@ -16,5 +16,6 @@ jobs:
 
       - name: Verificar archivos del proyecto
         run: |
-          echo "Forzando un fallo en el pipeline para la entrega..."
+          echo "Revisando que los archivos existan en el repositorio..."
+          ls -la
           esteComandoNoExisteYVaAFallar
